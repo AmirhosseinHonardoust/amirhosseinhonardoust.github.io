@@ -4,24 +4,293 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amirhossein Honardoust</title>
+  <meta name="description" content="Building intelligent systems that turn data into real decisions." />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; max-width: 720px; margin: 64px auto; padding: 0 16px; line-height: 1.6; }
-    h1 { margin: 0 0 8px; font-size: 40px; }
-    p { margin: 8px 0; }
-    a { text-decoration: none; }
-    .links a { margin-right: 12px; }
-    .muted { color: #555; }
+    :root{
+      --bg:#0b0d10;
+      --card:#11141a;
+      --text:#e8edf4;
+      --muted:#aab6c5;
+      --line:rgba(255,255,255,0.10);
+      --link:#d6e2ff;
+      --shadow: 0 12px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background: radial-gradient(900px 500px at 20% -10%, rgba(120,140,255,0.20), transparent 60%),
+                  radial-gradient(900px 500px at 80% 0%, rgba(70,220,200,0.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
+      line-height: 1.6;
+    }
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 56px 18px 80px; }
+
+    header{
+      display:flex; align-items:flex-start; justify-content:space-between;
+      gap: 18px; margin-bottom: 34px;
+    }
+    .brand h1{
+      font-size: clamp(34px, 3.5vw, 54px);
+      letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.05;
+    }
+    .tagline{
+      margin: 0 0 14px; color: var(--muted); font-size: 16px; max-width: 60ch;
+    }
+    .toplinks{ display:flex; flex-wrap:wrap; gap: 10px; justify-content:flex-end; margin-top: 6px; }
+    .chip{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .chip:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
+
+    .grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
+    @media (max-width: 880px){
+      header{ flex-direction: column; }
+      .toplinks{ justify-content:flex-start; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h2{ margin: 0 0 10px; font-size: 18px; letter-spacing: -0.01em; }
+    .card p{ margin: 0; color: var(--muted); font-size: 15px; }
+    .section{ margin-top: 16px; }
+
+    .pillrow{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
+    .pill{
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(0,0,0,0.10);
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 720px){ .projects{ grid-template-columns: 1fr; } }
+
+    .proj{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0,0,0,0.12);
+    }
+    .proj h3{ margin: 0 0 6px; font-size: 16px; letter-spacing: -0.01em; }
+    .proj p{ margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+
+    .meta{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 8px; }
+    .meta span{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 8px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    @media (max-width: 720px){ .split{ grid-template-columns: 1fr; } }
+
+    footer{ margin-top: 22px; color: rgba(255,255,255,0.45); font-size: 13px; }
+    .mutedlink{ color: rgba(255,255,255,0.70); }
   </style>
 </head>
-<body>
-  <h1>Amirhossein Honardoust</h1>
-  <p class="muted">building intelligent systems that turn data into real decisions</p>
 
-  <p>Selected links:</p>
-  <p class="links">
-    <a href="https://github.com/AmirhosseinHonardoust">GitHub</a>
-    <a href="https://www.linkedin.com/">LinkedIn</a>
-    <a href="mailto:amirhosseinhonardoust@gmail.com">Email</a>
-  </p>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>Amirhossein Honardoust</h1>
+        <p class="tagline">building intelligent systems that turn data into real decisions</p>
+
+        <div class="pillrow">
+          <span class="pill">machine learning systems</span>
+          <span class="pill">nlp</span>
+          <span class="pill">computer vision</span>
+          <span class="pill">time series</span>
+          <span class="pill">explainability</span>
+          <span class="pill">analytics</span>
+        </div>
+      </div>
+
+      <nav class="toplinks">
+        <a class="chip" href="https://github.com/AmirhosseinHonardoust" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="chip" href="https://www.linkedin.com/in/honardoust/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="chip" href="mailto:amirhosseinhonardoust@gmail.com">Email</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>About</h2>
+        <p>
+          I build end-to-end ML projects with a practical focus: clean pipelines, measurable evaluation,
+          and results that hold up outside a notebook. I like problems where clarity matters as much as accuracy.
+        </p>
+
+        <div class="section split">
+          <div class="proj">
+            <h3>What I optimize for</h3>
+            <p>reliability, interpretability, and systems you can iterate on</p>
+            <div class="meta">
+              <span>evaluation</span><span>metrics</span><span>error analysis</span><span>reproducibility</span>
+            </div>
+          </div>
+
+          <div class="proj">
+            <h3>What I’m building toward</h3>
+            <p>models and tooling that turn data into decisions with minimal friction</p>
+            <div class="meta">
+              <span>pipelines</span><span>deployment-ready</span><span>monitoring mindset</span><span>documentation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Quick facts</h2>
+        <p>
+          Focus areas: NLP, CV, forecasting, applied analytics<br/>
+          Preferred stack: Python, PyTorch, scikit-learn, SQL<br/>
+          Open to: collaboration and strong problem statements
+        </p>
+
+        <div class="section">
+          <h2 style="margin-top:16px;">Contact</h2>
+          <p>
+            Best way to reach me: <a href="mailto:amirhosseinhonardoust@gmail.com">email</a><br/>
+            If you found a repo useful, feel free to reach out.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <section class="card section">
+      <h2>Featured projects</h2>
+      <p>Selected work across NLP, vision, forecasting, and analytics.</p>
+
+      <div class="projects">
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Fake-News-Detector" target="_blank" rel="noreferrer">
+              Fake News Detector
+            </a>
+          </h3>
+          <p>End-to-end fake vs real news classification with TF-IDF + Logistic Regression, evaluation charts, and a Streamlit app.</p>
+          <div class="meta">
+            <span>nlp</span><span>tf-idf</span><span>logistic regression</span><span>streamlit</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Sentiment-Analysis-BERT" target="_blank" rel="noreferrer">
+              Sentiment Analysis with BERT
+            </a>
+          </h3>
+          <p>Fine-tuned BERT for tweet sentiment (negative/neutral/positive) with full evaluation: confusion matrix, ROC curves, and word clouds.</p>
+          <div class="meta">
+            <span>transformers</span><span>bert</span><span>text classification</span><span>evaluation</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Image-Captioning-CNN-LSTM" target="_blank" rel="noreferrer">
+              Image Captioning (CNN + LSTM)
+            </a>
+          </h3>
+          <p>CNN encoder (ResNet-50) + LSTM decoder in PyTorch, with preprocessing, vocabulary building, BLEU evaluation, and inference examples.</p>
+          <div class="meta">
+            <span>computer vision</span><span>pytorch</span><span>resnet</span><span>bleu</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Stock-LSTM-Forecasting" target="_blank" rel="noreferrer">
+              Stock LSTM Forecasting
+            </a>
+          </h3>
+          <p>LSTM forecasting on OHLCV data with sliding windows, early stopping, and metrics (RMSE/MAE/MAPE) plus clean prediction plots.</p>
+          <div class="meta">
+            <span>time series</span><span>lstm</span><span>pytorch</span><span>forecasting</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Coffee-Shop-Profit-Predictor" target="_blank" rel="noreferrer">
+              Coffee Shop Profit Predictor
+            </a>
+          </h3>
+          <p>Data-driven site selection: SQL (SQLite) prep + regression modeling to estimate monthly profit, with feature importance and diagnostics.</p>
+          <div class="meta">
+            <span>sql</span><span>regression</span><span>elasticnet</span><span>visualization</span>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>
+            <a href="https://github.com/AmirhosseinHonardoust/Market-Basket-Analysis" target="_blank" rel="noreferrer">
+              Market Basket Analysis
+            </a>
+          </h3>
+          <p>Generate synthetic transactions, mine frequent itemsets (Apriori/FP-Growth), derive association rules, and export clean charts/CSVs.</p>
+          <div class="meta">
+            <span>association rules</span><span>apriori</span><span>fp-growth</span><span>analytics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+
+      <div class="projects">
+        <div class="proj">
+          <h3><a class="mutedlink" href="#" onclick="return false;">How I evaluate text classifiers</a></h3>
+          <p>Metrics, confusion matrices, and what I look for beyond accuracy.</p>
+          <div class="meta"><span>evaluation</span><span>nlp</span><span>error analysis</span></div>
+        </div>
+        <div class="proj">
+          <h3><a class="mutedlink" href="#" onclick="return false;">Forecasting: what usually breaks</a></h3>
+          <p>Common leakage traps, windowing mistakes, and what to validate early.</p>
+          <div class="meta"><span>time series</span><span>validation</span><span>baselines</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Last updated: <span id="lastUpdated"></span></div>
+      <script>
+        const d = new Date();
+        const fmt = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+        document.getElementById("lastUpdated").textContent = fmt;
+      </script>
+    </footer>
+  </div>
 </body>
 </html>
