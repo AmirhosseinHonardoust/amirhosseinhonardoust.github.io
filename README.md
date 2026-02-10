@@ -17,7 +17,7 @@ The site is intentionally minimal and focused on:
 It highlights selected machine learning and data projects, along with short notes on how I think about evaluation, forecasting, and applied ML.
 
 ---
- 
+
 ## Tech stack
 
 - HTML5
