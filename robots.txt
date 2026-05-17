@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://honardoust.me/sitemap.xml

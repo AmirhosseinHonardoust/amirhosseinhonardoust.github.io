@@ -1,311 +1,465 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amir Honardoust</title>
-  <meta name="description" content="Building intelligent systems that turn data into real decisions." />
+  <title>Amir Honardoust | Data Scientist</title>
+  <meta name="description" content="Amir Honardoust is a Data Scientist building explainable machine learning, forecasting, NLP, analytics, and decision-support systems." />
+  <meta name="author" content="Amir Honardoust" />
+  <meta name="theme-color" content="#2563eb" />
 
-  <style>
-    :root{
-      --bg:#0b0d10;
-      --card:#11141a;
-      --text:#e8edf4;
-      --muted:#aab6c5;
-      --line:rgba(255,255,255,0.10);
-      --link:#d6e2ff;
-      --shadow: 0 12px 30px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --max: 980px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      background: #0b0d10;
-      color: var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
-      line-height: 1.6;
-    }
-    a{ color: var(--link); text-decoration: none; }
-    a:hover{ text-decoration: underline; }
+  <link rel="canonical" href="https://honardoust.me/" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png?v=4">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+  <link rel="manifest" href="assets/site.webmanifest">
 
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 56px 18px 80px; }
+  <meta property="og:title" content="Amir Honardoust | Data Scientist" />
+  <meta property="og:description" content="Data Scientist building explainable ML systems, forecasting tools, NLP pipelines, and analytics products that turn data into decisions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://honardoust.me/" />
+  <meta property="og:image" content="https://honardoust.me/assets/og-image.png" />
 
-    header{
-      position: relative;
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap: 18px; margin-bottom: 34px;
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      /* full-screen width glow, centered */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100vw;
-      /* height and placement above header */
-      top: -140px;
-      height: 520px;
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(120,140,255,0.20), transparent 50%),
-        radial-gradient(900px 420px at 80% 0%, rgba(70,220,200,0.12), transparent 50%);
-      z-index: -1;
-      pointer-events: none;
-    }
-    .brand h1{
-      font-size: clamp(34px, 3.5vw, 54px);
-      letter-spacing: -0.02em; margin: 0 0 8px; line-height: 1.05;
-    }
-    .tagline{
-      margin: 0 0 14px; color: var(--muted); font-size: 16px; max-width: 60ch;
-    }
-    .toplinks{ display:flex; flex-wrap:wrap; gap: 10px; justify-content:flex-end; margin-top: 6px; }
-    .chip{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .chip:hover{ background: rgba(255,255,255,0.06); text-decoration:none; }
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Amir Honardoust | Data Scientist" />
+  <meta name="twitter:description" content="Data Scientist building explainable ML and decision-support systems." />
 
-    .grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
-    @media (max-width: 880px){
-      header{ flex-direction: column; }
-      .toplinks{ justify-content:flex-start; }
-      .grid{ grid-template-columns: 1fr; }
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
-    .card h2{ margin: 0 0 10px; font-size: 18px; letter-spacing: -0.01em; }
-    .card p{ margin: 0; color: var(--muted); font-size: 15px; }
-    .section{ margin-top: 16px; }
-
-    .pillrow{ display:flex; flex-wrap:wrap; gap: 10px; margin-top: 12px; }
-    .pill{
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 10px;
-      font-size: 13px;
-      color: var(--muted);
-      background: rgba(0,0,0,0.10);
-    }
-
-    .projects{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    @media (max-width: 720px){ .projects{ grid-template-columns: 1fr; } }
-
-    .proj{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(0,0,0,0.12);
-    }
-    .proj h3{ margin: 0 0 6px; font-size: 16px; letter-spacing: -0.01em; }
-    .proj p{ margin: 0 0 10px; color: var(--muted); font-size: 14px; }
-
-    .meta{ display:flex; flex-wrap:wrap; gap: 8px; margin-top: 8px; }
-    .meta span{
-      font-size: 12px;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 6px 8px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .split{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-    @media (max-width: 720px){ .split{ grid-template-columns: 1fr; } }
-
-    footer{ margin-top: 22px; color: rgba(255,255,255,0.45); font-size: 13px; }
-    .mutedlink{ color: rgba(255,255,255,0.70); }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amir Honardoust",
+    "url": "https://honardoust.me/",
+    "jobTitle": "Data Scientist",
+    "sameAs": [
+      "https://github.com/AmirhosseinHonardoust",
+      "https://www.linkedin.com/in/honardoust/",
+      "https://honardoust.codes/"
+    ],
+    "knowsAbout": [
+      "Data Science",
+      "Machine Learning",
+      "Forecasting",
+      "Natural Language Processing",
+      "Explainable AI",
+      "Analytics",
+      "Python",
+      "SQL"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <h1>Amir Honardoust</h1>
-        <p class="tagline">building intelligent systems that turn data into real decisions</p>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-        <div class="pillrow">
-          <span class="pill">machine learning systems</span>
-          <span class="pill">nlp</span>
-          <span class="pill">computer vision</span>
-          <span class="pill">time series</span>
-          <span class="pill">explainability</span>
-          <span class="pill">analytics</span>
-        </div>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Amir Honardoust home">
+        <span class="brand-logo-card" aria-hidden="true">
+          <img class="brand-logo-image" src="assets/logo-icon.png" alt="">
+        </span>
+        <span class="brand-text">Amir Honardoust</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="sr-only">Open menu</span>
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-lab" href="https://honardoust.codes/" target="_blank" rel="noopener">Technical Lab ↗</a>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="theme-icon">◐</span>
+        </button>
       </div>
+    </nav>
+  </header>
 
-      <nav class="toplinks">
-        <a class="chip" href="https://github.com/AmirhosseinHonardoust" target="_blank" rel="noreferrer">GitHub</a>
-        <a class="chip" href="https://www.linkedin.com/in/honardoust/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="chip" href="mailto:amirhosseinhonardoust@gmail.com">Email</a>
-      </nav>
-    </header>
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Data Scientist · Machine Learning · Decision Intelligence</p>
+          <h1>Turning data into reliable models, clear insights, and decision-support tools.</h1>
+          <p class="hero-lede">
+            I’m <strong>Amir Honardoust</strong>, a Data Scientist focused on explainable machine learning,
+            forecasting, NLP, analytics, and practical AI systems people can understand and use.
+          </p>
 
-    <div class="grid">
-      <section class="card">
-        <h2>About</h2>
-        <p>
-          I build end-to-end ML projects with a practical focus: clean pipelines, measurable evaluation,
-          and results that hold up outside a notebook. I like problems where clarity matters as much as accuracy.
-        </p>
-
-        <div class="section split">
-          <div class="proj">
-            <h3>What I optimize for</h3>
-            <p>reliability, interpretability, and systems you can iterate on</p>
-            <div class="meta">
-              <span>evaluation</span><span>metrics</span><span>error analysis</span><span>reproducibility</span>
-            </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View featured work</a>
+            <a class="btn btn-secondary" href="https://github.com/AmirhosseinHonardoust" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/honardoust/" target="_blank" rel="noopener">LinkedIn</a>
           </div>
 
-          <div class="proj">
-            <h3>What I’m building toward</h3>
-            <p>models and tooling that turn data into decisions with minimal friction</p>
-            <div class="meta">
-              <span>pipelines</span><span>deployment-ready</span><span>monitoring mindset</span><span>documentation</span>
-            </div>
+          <div class="signal-row" aria-label="Professional focus areas">
+            <span>Forecasting</span>
+            <span>NLP / RAG</span>
+            <span>Explainable AI</span>
+            <span>Analytics</span>
           </div>
         </div>
-      </section>
 
-      <aside class="card">
-        <h2>Quick facts</h2>
-        <p>
-          Focus areas: NLP, CV, forecasting, applied analytics<br/>
-          Preferred stack: Python, PyTorch, scikit-learn, SQL<br/>
-          Open to: collaboration and strong problem statements
-        </p>
+        <aside class="hero-card" aria-label="Profile summary">
+          <div class="card-glow"></div>
+          <div class="mini-terminal">
+            <div class="terminal-top">
+              <span></span><span></span><span></span>
+            </div>
+            <pre><code>amir.profile = {
+  role: "Data Scientist",
+  focus: [
+    "ML evaluation",
+    "forecasting",
+    "NLP systems",
+    "data storytelling"
+  ],
+  output: "decisions"
+}</code></pre>
+          </div>
 
-        <div class="section">
-          <h2 style="margin-top:16px;">Contact</h2>
+          <div class="metrics-grid">
+            <div>
+              <strong>ML</strong>
+              <span>models with measurable evaluation</span>
+            </div>
+            <div>
+              <strong>AI</strong>
+              <span>RAG, NLP, and applied systems</span>
+            </div>
+            <div>
+              <strong>BI</strong>
+              <span>dashboards and decision tools</span>
+            </div>
+            <div>
+              <strong>DX</strong>
+              <span>reproducible, readable projects</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What I do</p>
+          <h2>Data science that moves from analysis to action.</h2>
           <p>
-            Best way to reach me: <a href="mailto:amirhosseinhonardoust@gmail.com">email</a><br/>
-            If you found a repo useful, feel free to reach out.
+            My work connects statistical thinking, machine learning, product sense, and clear communication.
+            I care about models that are evaluated, explainable, and useful beyond a notebook.
           </p>
         </div>
-      </aside>
+
+        <div class="work-grid">
+          <article class="work-card">
+            <div class="icon-box">01</div>
+            <h3>Machine Learning & Forecasting</h3>
+            <p>
+              Predictive models, time-series forecasting, scenario simulation, model validation,
+              and practical evaluation for real decision-making.
+            </p>
+          </article>
+
+          <article class="work-card">
+            <div class="icon-box">02</div>
+            <h3>NLP, RAG & Applied AI</h3>
+            <p>
+              Text classification, retrieval workflows, semantic search, grounded answers,
+              and AI systems designed with transparency.
+            </p>
+          </article>
+
+          <article class="work-card">
+            <div class="icon-box">03</div>
+            <h3>Analytics & Storytelling</h3>
+            <p>
+              Dashboards, KPI analysis, interactive data apps, visual explanations,
+              and insight delivery for technical and non-technical audiences.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="eyebrow">Featured projects</p>
+            <h2>Selected proof of work.</h2>
+          </div>
+          <a class="text-link" href="https://honardoust.codes/" target="_blank" rel="noopener">Explore the technical lab ↗</a>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-top">
+              <p class="project-kicker">RAG · Knowledge Graphs · FastAPI</p>
+              <a href="https://github.com/AmirhosseinHonardoust/Graph-RAG-Engine" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Graph-RAG Engine</h3>
+            <p>
+              Built a retrieval-augmented question-answering system that combines vector search,
+              graph expansion, citations, FastAPI, and an interactive Streamlit interface.
+            </p>
+
+            <div class="project-meta-grid">
+              <div class="project-meta">
+                <span>Problem</span>
+                <p>Simple RAG systems can produce answers without enough traceability or context.</p>
+              </div>
+              <div class="project-meta">
+                <span>Method</span>
+                <p>Combined semantic retrieval with graph-based relationships and citation-first outputs.</p>
+              </div>
+              <div class="project-meta">
+                <span>Proves</span>
+                <p>Applied AI architecture, retrieval design, and explainable answer generation.</p>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span>RAG</span><span>FAISS</span><span>FastAPI</span><span>Streamlit</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <p class="project-kicker">Forecasting · Simulation</p>
+              <a href="https://github.com/AmirhosseinHonardoust/Forecast-Factory" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Forecast Factory</h3>
+            <p>
+              Built an interactive forecasting and scenario-simulation tool for planning,
+              demand analysis, and business decision support.
+            </p>
+
+            <div class="project-meta">
+              <span>Problem</span>
+              <p>Static forecasts do not help users explore what-if business scenarios.</p>
+            </div>
+            <div class="project-meta">
+              <span>Method</span>
+              <p>Connected forecasting models with scenario controls and visual analytics.</p>
+            </div>
+            <div class="project-meta">
+              <span>Proves</span>
+              <p>Time-series thinking, model communication, and decision-focused analytics.</p>
+            </div>
+
+            <div class="tag-row">
+              <span>Time Series</span><span>Prophet</span><span>Plotly</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <p class="project-kicker">Synthetic Data · Evaluation</p>
+              <a href="https://github.com/AmirhosseinHonardoust/Synthetic-Data-Artist" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Synthetic Data Artist</h3>
+            <p>
+              Compared synthetic tabular data quality using realism, distribution overlap,
+              correlation preservation, and utility-oriented evaluation.
+            </p>
+
+            <div class="project-meta">
+              <span>Problem</span>
+              <p>Synthetic data needs evidence of realism, not just generated samples.</p>
+            </div>
+            <div class="project-meta">
+              <span>Method</span>
+              <p>Evaluated distribution similarity, correlation structure, and visual separability.</p>
+            </div>
+            <div class="project-meta">
+              <span>Proves</span>
+              <p>Model evaluation maturity, statistical thinking, and data-quality analysis.</p>
+            </div>
+
+            <div class="tag-row">
+              <span>VAE</span><span>Copula</span><span>Evaluation</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <p class="project-kicker">NLP · Classification</p>
+              <a href="https://github.com/AmirhosseinHonardoust/Fake-News-Detector" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Fake News Detector</h3>
+            <p>
+              Built an NLP classification pipeline for detecting unreliable news text using
+              feature extraction, model comparison, and evaluation reporting.
+            </p>
+
+            <div class="project-meta">
+              <span>Problem</span>
+              <p>Text classification needs transparent features and careful validation.</p>
+            </div>
+            <div class="project-meta">
+              <span>Method</span>
+              <p>Used NLP preprocessing, vectorization, supervised learning, and metric comparison.</p>
+            </div>
+            <div class="project-meta">
+              <span>Proves</span>
+              <p>End-to-end ML workflow, NLP fundamentals, and evaluation discipline.</p>
+            </div>
+
+            <div class="tag-row">
+              <span>NLP</span><span>scikit-learn</span><span>Classification</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <p class="project-kicker">Deep Learning · Vision</p>
+              <a href="https://github.com/AmirhosseinHonardoust/Image-Captioning-CNN-LSTM" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <h3>Image Captioning CNN-LSTM</h3>
+            <p>
+              Built a multimodal deep learning project that combines visual feature extraction
+              with sequence generation for image captioning.
+            </p>
+
+            <div class="project-meta">
+              <span>Problem</span>
+              <p>Image captioning requires connecting visual understanding with language generation.</p>
+            </div>
+            <div class="project-meta">
+              <span>Method</span>
+              <p>Used CNN-based image features with recurrent sequence modeling for captions.</p>
+            </div>
+            <div class="project-meta">
+              <span>Proves</span>
+              <p>Deep learning fundamentals, multimodal modeling, and reproducible experimentation.</p>
+            </div>
+
+            <div class="tag-row">
+              <span>CNN</span><span>LSTM</span><span>PyTorch</span>
+            </div>
+          </article>
+
+          <article class="project-card cta-card">
+            <h3>More experiments live on honardoust.codes</h3>
+            <p>
+              Technical notes, project breakdowns, reproducible workflows, and deeper implementation details.
+            </p>
+            <div class="project-meta">
+              <span>Purpose</span>
+              <p>Keep this main portfolio clean while using the technical lab for deeper proof of work.</p>
+            </div>
+            <a class="btn btn-primary" href="https://honardoust.codes/" target="_blank" rel="noopener">Visit technical lab</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>A Data Scientist with a builder’s mindset.</h2>
+        </div>
+
+        <div class="about-copy">
+          <p>
+            I focus on practical data science: understanding the problem, shaping the data,
+            building the right model, evaluating it honestly, and communicating the result clearly.
+          </p>
+          <p>
+            My strongest interests are forecasting, NLP, retrieval-augmented generation,
+            synthetic data evaluation, explainability, and analytics systems that help people make better decisions.
+          </p>
+
+          <div class="quote-card">
+            <p>
+              “Good data science is not just a model. It is a reliable path from messy evidence
+              to a decision someone can trust.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Skills</p>
+          <h2>Tools and capabilities.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Data Science</h3>
+            <p>Python, SQL, pandas, NumPy, statistics, exploratory analysis, feature engineering.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Machine Learning</h3>
+            <p>Classification, regression, forecasting, validation, metrics, error analysis, interpretation.</p>
+          </div>
+          <div class="skill-group">
+            <h3>AI / NLP</h3>
+            <p>Text classification, transformers, RAG, semantic search, embeddings, grounded AI systems.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Visualization</h3>
+            <p>Plotly, Streamlit, dashboards, storytelling, KPI reporting, decision-support interfaces.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Engineering</h3>
+            <p>Git, APIs, FastAPI, reproducible pipelines, documentation, clean project structure.</p>
+          </div>
+          <div class="skill-group">
+            <h3>Communication</h3>
+            <p>Translating models, uncertainty, tradeoffs, and results for technical and business audiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Open to Data Science roles, collaborations, and applied ML projects.</h2>
+          <p>
+            The fastest way to reach me is through LinkedIn or GitHub. For technical details,
+            visit my lab at <strong>honardoust.codes</strong>.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/honardoust/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn btn-secondary" href="https://github.com/AmirhosseinHonardoust" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn btn-ghost" href="https://honardoust.codes/" target="_blank" rel="noopener">Technical Lab</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Amir Honardoust. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="https://honardoust.codes/" target="_blank" rel="noopener">honardoust.codes</a>
+        <a href="https://github.com/AmirhosseinHonardoust" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/honardoust/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
+  </footer>
 
-    <section class="card section">
-      <h2>Featured projects</h2>
-      <p>Selected work across NLP, vision, forecasting, and analytics.</p>
-
-      <div class="projects">
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Fake-News-Detector" target="_blank" rel="noreferrer">
-              Fake News Detector
-            </a>
-          </h3>
-          <p>End-to-end fake vs real news classification with TF-IDF + Logistic Regression, evaluation charts, and a Streamlit app.</p>
-          <div class="meta">
-            <span>nlp</span><span>tf-idf</span><span>logistic regression</span><span>streamlit</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Sentiment-Analysis-BERT" target="_blank" rel="noreferrer">
-              Sentiment Analysis with BERT
-            </a>
-          </h3>
-          <p>Fine-tuned BERT for tweet sentiment (negative/neutral/positive) with full evaluation: confusion matrix, ROC curves, and word clouds.</p>
-          <div class="meta">
-            <span>transformers</span><span>bert</span><span>text classification</span><span>evaluation</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Image-Captioning-CNN-LSTM" target="_blank" rel="noreferrer">
-              Image Captioning (CNN + LSTM)
-            </a>
-          </h3>
-          <p>CNN encoder (ResNet-50) + LSTM decoder in PyTorch, with preprocessing, vocabulary building, BLEU evaluation, and inference examples.</p>
-          <div class="meta">
-            <span>computer vision</span><span>pytorch</span><span>resnet</span><span>bleu</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Stock-LSTM-Forecasting" target="_blank" rel="noreferrer">
-              Stock LSTM Forecasting
-            </a>
-          </h3>
-          <p>LSTM forecasting on OHLCV data with sliding windows, early stopping, and metrics (RMSE/MAE/MAPE) plus clean prediction plots.</p>
-          <div class="meta">
-            <span>time series</span><span>lstm</span><span>pytorch</span><span>forecasting</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Coffee-Shop-Profit-Predictor" target="_blank" rel="noreferrer">
-              Coffee Shop Profit Predictor
-            </a>
-          </h3>
-          <p>Data-driven site selection: SQL (SQLite) prep + regression modeling to estimate monthly profit, with feature importance and diagnostics.</p>
-          <div class="meta">
-            <span>sql</span><span>regression</span><span>elasticnet</span><span>visualization</span>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>
-            <a href="https://github.com/AmirhosseinHonardoust/Market-Basket-Analysis" target="_blank" rel="noreferrer">
-              Market Basket Analysis
-            </a>
-          </h3>
-          <p>Generate synthetic transactions, mine frequent itemsets (Apriori/FP-Growth), derive association rules, and export clean charts/CSVs.</p>
-          <div class="meta">
-            <span>association rules</span><span>apriori</span><span>fp-growth</span><span>analytics</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card section">
-
-      <div class="projects">
-        <div class="proj">
-          <h3><a class="mutedlink" href="#" onclick="return false;">How I evaluate text classifiers</a></h3>
-          <p>Metrics, confusion matrices, and what I look for beyond accuracy.</p>
-          <div class="meta"><span>evaluation</span><span>nlp</span><span>error analysis</span></div>
-        </div>
-        <div class="proj">
-          <h3><a class="mutedlink" href="#" onclick="return false;">Forecasting: what usually breaks</a></h3>
-          <p>Common leakage traps, windowing mistakes, and what to validate early.</p>
-          <div class="meta"><span>time series</span><span>validation</span><span>baselines</span></div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div>Last updated: <span id="lastUpdated"></span></div>
-      <script>
-        const d = new Date();
-        const fmt = d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
-        document.getElementById("lastUpdated").textContent = fmt;
-      </script>
-    </footer>
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
