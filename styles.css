@@ -695,6 +695,15 @@ code {
     var(--surface);
 }
 
+.back-to-top {
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  color: var(--text);
+}
+
 .site-footer {
   padding: 28px 0;
   border-top: 1px solid var(--border);
