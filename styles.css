@@ -76,10 +76,55 @@ select {
 }
 
 .section-soft {
+  position: relative;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.38), rgba(255,255,255,0)),
-    var(--bg-soft);
-  border-block: 1px solid var(--border);
+    linear-gradient(
+      180deg,
+      rgba(96, 165, 250, 0.10) 0%,
+      rgba(96, 165, 250, 0.04) 38%,
+      rgba(96, 165, 250, 0.02) 70%,
+      transparent 100%
+    ),
+    var(--bg);
+  border-block: 0;
+}
+
+.section-soft::before,
+.section-soft::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 90px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-soft::before {
+  top: 0;
+  background: linear-gradient(180deg, var(--bg), transparent);
+}
+
+.section-soft::after {
+  bottom: 0;
+  background: linear-gradient(0deg, var(--bg), transparent);
+}
+
+.section-soft > .container {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme="dark"] .section-soft {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(96, 165, 250, 0.08) 0%,
+      rgba(96, 165, 250, 0.04) 42%,
+      rgba(96, 165, 250, 0.015) 74%,
+      transparent 100%
+    ),
+    var(--bg);
 }
 
 .skip-link {
