@@ -80,9 +80,9 @@ select {
   background:
     linear-gradient(
       180deg,
-      rgba(96, 165, 250, 0.10) 0%,
-      rgba(96, 165, 250, 0.04) 38%,
-      rgba(96, 165, 250, 0.02) 70%,
+      rgba(96, 165, 250, 0.095) 0%,
+      rgba(96, 165, 250, 0.135) 50%,
+      rgba(96, 165, 250, 0.01) 78%,
       transparent 100%
     ),
     var(--bg);
@@ -233,6 +233,22 @@ html[data-theme="dark"] .brand-logo-card {
   }
 }
 
+@media (max-width: 760px) {
+  .cta-card {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-card .project-meta {
+    margin-top: 16px;
+  }
+
+  .cta-card .btn {
+    margin-top: auto;
+  }
+}
 
 .brand-text {
   color: var(--text);
@@ -287,7 +303,40 @@ html[data-theme="dark"] .brand-logo-card {
 }
 
 .hero {
-  padding: 120px 0 96px;
+  position: relative;
+  padding: 120px 0 150px;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(248, 250, 252, 0.55) 55%,
+    var(--bg) 100%
+  );
+  z-index: 0;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme="dark"] .hero::after {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(8, 17, 31, 0.55) 55%,
+    var(--bg) 100%
+  );
 }
 
 .hero-grid {
@@ -302,7 +351,7 @@ html[data-theme="dark"] .brand-logo-card {
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   margin: 0 0 14px;
 }
 
@@ -577,10 +626,50 @@ code {
   font-family: "JetBrains Mono", monospace;
 }
 
+.projects-section {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(96, 165, 250, 0.018) 0%,
+      rgba(3, 113, 247, 0.164) 55%,
+      transparent 100%
+    ),
+    var(--bg);
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+}
+
+.cta-card {
+  grid-column: 1 / -1;
+  min-height: 100px;
+  padding: 28px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
+  background:
+    linear-gradient(135deg, rgba(14, 165, 233, 0.10), rgba(37, 99, 235, 0.06)),
+    var(--surface);
+}
+
+.cta-card h3,
+.cta-card p {
+  margin-bottom: 0;
+}
+
+.cta-card > p {
+  max-width: 760px;
+}
+
+.cta-card .btn {
+  margin-top: 0;
+  width: fit-content;
 }
 
 .project-card {
@@ -594,7 +683,7 @@ code {
   grid-column: span 2;
   min-height: 440px;
   background:
-    linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(14, 165, 233, 0.05)),
+    linear-gradient(135deg, rgba(8, 84, 248, 0.26), rgba(133, 204, 236, 0.05)),
     var(--surface);
 }
 
@@ -692,7 +781,7 @@ code {
 
 .cta-card {
   background:
-    linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(37, 99, 235, 0.08)),
+    linear-gradient(135deg, rgba(133, 204, 236, 0.05), rgba(8, 84, 248, 0.26)),
     var(--surface);
 }
 
@@ -774,6 +863,33 @@ code {
 
 .footer-links a:hover {
   color: var(--text);
+}
+
+.project-grid .cta-card {
+  grid-column: 1 / -1;
+  min-height: unset;
+  height: auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.project-grid .cta-card h3 {
+  margin: 0;
+}
+
+.project-grid .cta-card > p {
+  margin: 0;
+  max-width: 760px;
+}
+
+.project-grid .cta-card .btn {
+  margin-top: 8px;
+  width: fit-content;
 }
 
 @media (max-width: 960px) {
