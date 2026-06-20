@@ -1,19 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page not found | Amirhossein Honardoust</title>
-  <meta http-equiv="refresh" content="3; url=/" />
+  <title>Page not found | Amir Honardoust</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
+  <script>
+    (function () {
+      var t = localStorage.getItem("theme");
+      var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (t) document.documentElement.setAttribute("data-theme", t);
+      else if (d) document.documentElement.setAttribute("data-theme", "dark");
+    })();
+  </script>
 </head>
 <body>
-  <main class="section">
-    <div class="container">
-      <p class="eyebrow">404</p>
-      <h1>Page not found.</h1>
-      <p class="hero-lede">Redirecting you back to the homepage.</p>
-      <a class="btn btn-primary" href="/">Go home</a>
+  <main class="hero section" style="display:grid;place-items:center;min-height:80vh;text-align:center;">
+    <div class="hero-aurora" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:1;max-width:620px;">
+      <p class="eyebrow">Error 404</p>
+      <h1 style="max-width:none;">This page took an unexpected branch.</h1>
+      <p class="hero-lede" style="margin-inline:auto;">
+        The page you’re looking for doesn’t exist or has moved. Let’s get you back to solid ground.
+      </p>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-secondary" href="https://honardoust.codes/" target="_blank" rel="noopener">Technical Lab ↗</a>
+      </div>
     </div>
   </main>
 </body>

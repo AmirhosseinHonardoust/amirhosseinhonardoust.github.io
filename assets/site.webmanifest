@@ -1,5 +1,5 @@
 {
-  "name": "Amirhossein Honardoust",
+  "name": "Amir Honardoust — Data Scientist",
   "short_name": "Honardoust",
   "start_url": "/",
   "display": "standalone",
@@ -7,9 +7,16 @@
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/assets/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
+      "src": "/assets/favicon.png?v=4",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png?v=4",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
